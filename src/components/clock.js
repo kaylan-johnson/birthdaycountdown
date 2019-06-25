@@ -17,9 +17,36 @@ class Clock extends Component {
 
     }
 
+   
+
     getTimeRemaining(birthday) {
         var bday = new Date(birthday);
         let today = new Date();
+
+        const currentMonth = today.getMonth();
+        const birthMonth = bday.getMonth();
+
+        if(birthMonth > currentMonth) {
+        bday.setFullYear(today.getFullYear());
+        }
+        else if(birthMonth < currentMonth) {
+            bday.setFullYear(today.getFullYear() + 1);
+        }
+        else if(birthMonth == currentMonth) {
+            const birthDay = bday.getDate();
+            const currentDay = today.getDate();
+            if(birthDay > currentDay) {
+                bday.setFullYear(today.getFullYear());
+            }
+            else if (birthDay < currentDay) {
+                bday.setFullYear(today.getFullYear() + 1);
+
+            }
+
+            }
+
+
+        
 
         var distance = bday.getTime() - today.getTime();
 
@@ -56,6 +83,9 @@ componentDidMount() {
         }, 1000);
     }
 
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
 
     render() {  
         const data = this.state.timeRemaining
