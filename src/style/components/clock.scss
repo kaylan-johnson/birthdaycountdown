@@ -1,23 +1,16 @@
 .countdown {
+    @include center-item($pull-x: -50%, $pull-y: -50%, $top: 50%, $left: 50%);
     width: 100vw;
     height: 100vh;
     background-color: var(--gray-primary);
     color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     clip-path: polygon(14.4% 50%, 92% 50%, 85.6% 70%, 8% 70%);
-   }
+}
 
-   .countdown__clock {
+.countdown__clock {
     @include clock-dimensions;
-    position: absolute;
-    top: 52%;
-    left: 50%;
+    @include center-item($pull-x: -50%, $pull-y: 0, $top: 52%, $left: 50%); 
     padding: 0; 
-    transform: translateX(-50%);
-
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -25,52 +18,36 @@
 
 .change-date {
     color: white !important;
-    position: absolute;
-    left: 20%;
-    top: 45%;
+    @include center-item($pull-x: 0, $pull-y: 0, $top: 45%, $left: 20%);  
     font-size: 18px;
     font-weight: 100;
-     }
-
-     
-
-.message-container {
-    @include clock-dimensions;
-    position:absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%);
-    margin-top: 20px;
 }
 
-     .message-container__title {
-        font-family: var(--roboto-condensed);
-        color: var(--yellow-secondary);
-        font-size: 22px;
-        position: absolute;
-        left: 10%;
-        top: 5%;
-       }
+   
 
-       .message-container__message {
-        font-family: var(--roboto-condensed);
-        font-size: 90px;
-        font-weight: bold;
-        position: absolute;
-        left: 10%;
-        bottom: 5%;
-        width: 100%;
-        }
+.message-container {
+     @include clock-dimensions;
+     @include center-item($pull-y: 0%);
+     margin-top: 20px;
+   }
 
-        ul li {
-            list-style: none;
-            color: var(--yellow-secondary);
-            font-size: 22px;
-            font-family: var(--roboto-condensed);
-          }
+.message-container__message {
+    @include center-item($pull-x: 0, $pull-y: 0, $top: 15%, $left: 10%);
+    font-family: var(--roboto-condensed);
+    font-size: 90px;
+    font-weight: bold;
+    width: 100%;
+    }
 
-          ul p {
-            color: white;
-            font-size: 90px;
-            line-height: 115px;
-          }
+ul li {
+    list-style: none;
+    color: var(--yellow-secondary);
+    font-size: 22px;
+    font-family: var(--roboto-condensed);
+    }
+
+    ul p {
+    color: white;
+    font-size: 90px;
+    line-height: 115px;
+    }
