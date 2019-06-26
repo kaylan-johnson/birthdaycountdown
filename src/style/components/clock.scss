@@ -51,3 +51,8 @@ ul li {
     font-size: 90px;
     line-height: 115px;
     }
+
+.until-container {
+    @include center-item($top: 85%, $left: 50%);
+
+}
